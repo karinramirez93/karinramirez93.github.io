@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Portfolio | Tu Nombre</title>
+  <meta name="description" content="Portfolio personal: proyectos, habilidades y contacto." />
+  <meta property="og:title" content="Mi Portfolio" />
+  <meta property="og:description" content="Proyectos, habilidades y contacto." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #0f172a;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #a78bfa;
+      --ring: rgba(56,189,248,0.4);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(56,189,248,0.08), transparent),
+                  radial-gradient(1000px 600px at -10% 0%, rgba(167,139,250,0.08), transparent), var(--bg);
+      color: var(--text);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px); background: #0b1220cc; border-bottom: 1px solid #1f2937; }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .nav a.logo { font-weight: 800; letter-spacing: 0.4px; }
+    .nav .links { display:flex; gap: 16px; }
+    .btn { display:inline-block; padding: 10px 14px; border-radius: 10px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #081224; font-weight: 700; border: none; }
+    .btn:hover { filter: brightness(1.05); }
+    .hero { display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items:center; padding: 56px 0; }
+    .hero h1 { font-size: clamp(28px, 6vw, 48px); line-height: 1.05; margin: 0 0 12px; }
+    .hero p { color: var(--muted); margin: 0 0 22px; }
+    .card { background: linear-gradient(180deg, #0f172a, #0b1220); border: 1px solid #1f2937; border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project { display:flex; flex-direction:column; gap:10px; }
+    .project img { width:100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 1px solid #1f2937; }
+    .project h3 { margin: 0; font-size: 18px; }
+    .project p { margin: 0; color: var(--muted); font-size: 14px; }
+    .stack { display:flex; gap:8px; flex-wrap: wrap; margin-top: 10px; }
+    .chip { padding: 6px 10px; border-radius: 999px; border:1px solid #243244; color:#cbd5e1; font-size: 12px; background:#0c1527; }
+    section { padding: 40px 0; }
+    h2 { margin: 0 0 12px; font-size: 24px; }
+    .about { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+    .footer { border-top: 1px solid #1f2937; color: #9ca3af; padding: 24px 0 60px; font-size: 14px; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:#0c1527; border:1px solid #243244; padding:2px 6px; border-radius:6px; }
+    .note { color: var(--muted); font-size: 14px; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .about { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .nav .links { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">&lt;/&gt; TuNombre</a>
+      <nav class="links">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+        <a class="btn" href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Desarrollo apps web y móviles con JavaScript/React.</h1>
+        <p>
+          Soy <strong>Tu Nombre</strong>, desarrollador enfocado en experiencias rápidas y accesibles. Aquí encontrarás mis
+          proyectos, el stack que uso y cómo contactarme.
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn" href="#proyectos">Ver proyectos</a>
+          <a class="btn" style="background:linear-gradient(90deg, var(--accent-2), var(--accent));" href="resume.pdf" target="_blank">Descargar CV</a>
+        </div>
+        <p class="note" style="margin-top: 10px;">Tip: actualiza este texto y enlaza tu <span class="kbd">resume.pdf</span> en la raíz del repositorio.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 10px;">Stack principal</h3>
+        <div class="stack">
+          <span class="chip">JavaScript</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">React</span>
+          <span class="chip">React Native</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">HTML/CSS</span>
+        </div>
+        <p class="note" style="margin-top:12px;">Edita chips en <span class="kbd">index.html</span> &rarr; sección “Stack principal”.</p>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2>Proyectos destacados</h2>
+      <p class="note">Añade tus proyectos editando los elementos .project. Sube una captura a <span class="kbd">/img</span>.</p>
+      <div class="grid">
+        <article class="card project">
+          <img src="img/proyecto1.jpg" alt="Proyecto 1" />
+          <h3>App de Combate (React Native)</h3>
+          <p>Juego con creación de personajes, combate por turnos y sistema de puntuaciones.</p>
+          <div class="stack">
+            <span class="chip">React Native</span>
+            <span class="chip">Expo</span>
+            <span class="chip">JavaScript</span>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <a href="https://github.com/tu-usuario/tu-repo-app" target="_blank" rel="noopener">Código</a>
+            <a href="#" target="_blank" rel="noopener">Demo</a>
+          </div>
+        </article>
+        <article class="card project">
+          <img src="img/proyecto2.jpg" alt="Proyecto 2" />
+          <h3>Buy & Sell (Java)</h3>
+          <p>Sistema CRUD para inventario, ventas y reportes con persistencia en archivos/DB.</p>
+          <div class="stack">
+            <span class="chip">Java</span>
+            <span class="chip">Swing/JavaFX</span>
+            <span class="chip">SQLite</span>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <a href="https://github.com/tu-usuario/compra-venta" target="_blank" rel="noopener">Código</a>
+          </div>
+        </article>
+        <article class="card project">
+          <img src="img/proyecto3.jpg" alt="Proyecto 3" />
+          <h3>Teoría de la Computación</h3>
+          <p>Notas, ejemplos (DFA/NFA) y ejercicios resueltos basados en Sipser (3ra edición).</p>
+          <div class="stack">
+            <span class="chip">Automatas</span>
+            <span class="chip">Teoría</span>
+            <span class="chip">Docentes</span>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <a href="https://github.com/tu-usuario/cs-theory-notes" target="_blank" rel="noopener">Notas</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+      <div class="card">
+        <h2>Sobre mí</h2>
+        <p>Breve bio: estudiante/desarrollador en UNO, me enfoco en apps móviles y teoría de la computación.
+           Me gusta construir productos útiles con código claro y bien documentado.</p>
+        <ul>
+          <li>Ubicación: Nueva Orleans, LA</li>
+          <li>Intereses: React Native, Sistemas, Trading/Finanzas</li>
+          <li>Idiomas: Español / Inglés</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Servicios</h2>
+        <ul>
+          <li>Desarrollo de apps móviles (Expo/React Native)</li>
+          <li>Web apps SPA/SSR (React)</li>
+          <li>Consultoría académica (CSCI 2467/3102)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contacto" class="card">
+      <h2>Contacto</h2>
+      <p class="note">Para un formulario sin backend puedes usar <a href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a> o <a href="https://getform.io/" target="_blank" rel="noopener">Getform</a>.</p>
+      <form action="#" method="post" onsubmit="alert('Este es un ejemplo. Conecta un servicio como Formspree.'); return false;" style="display:grid; gap:12px; max-width:520px;">
+        <input required name="name" placeholder="Nombre" style="padding:12px;border-radius:10px;border:1px solid #243244;background:#0c1527;color:#e2e8f0;outline: none; box-shadow: 0 0 0 0 var(--ring);" onfocus="this.style.boxShadow='0 0 0 4px var(--ring)';" onblur="this.style.boxShadow='none';" />
+        <input required type="email" name="email" placeholder="Email" style="padding:12px;border-radius:10px;border:1px solid #243244;background:#0c1527;color:#e2e8f0;outline: none;" />
+        <textarea required name="message" rows="4" placeholder="Mensaje" style="padding:12px;border-radius:10px;border:1px solid #243244;background:#0c1527;color:#e2e8f0;"></textarea>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="y"></span> Tu Nombre · Hecho con HTML/CSS. Código en <a href="https://github.com/tu-usuario/tu-repo" target="_blank" rel="noopener">GitHub</a>.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
