@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi Portfolio | Tu Nombre</title>
-  <meta name="description" content="Portfolio personal: proyectos, habilidades y contacto." />
-  <meta property="og:title" content="Mi Portfolio" />
-  <meta property="og:description" content="Proyectos, habilidades y contacto." />
+  <title>My Portfolio | Your Name</title>
+  <meta name="description" content="Personal portfolio: projects, skills, and contact." />
+  <meta property="og:title" content="My Portfolio" />
+  <meta property="og:description" content="Projects, skills, and contact." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="favicon.ico" />
   <style>
@@ -64,12 +64,12 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="logo" href="#">&lt;/&gt; TuNombre</a>
+      <a class="logo" href="#">&lt;/&gt; YourName</a>
       <nav class="links">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#contacto">Contacto</a>
-        <a class="btn" href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </div>
   </header>
@@ -77,19 +77,18 @@
   <main class="container">
     <section class="hero">
       <div>
-        <h1>Desarrollo apps web y móviles con JavaScript/React.</h1>
+        <h1>I build web and mobile apps with JavaScript/React.</h1>
         <p>
-          Soy <strong>Tu Nombre</strong>, desarrollador enfocado en experiencias rápidas y accesibles. Aquí encontrarás mis
-          proyectos, el stack que uso y cómo contactarme.
+          I'm <strong>Your Name</strong>, a developer focused on fast and accessible experiences. Here you’ll find my projects, the stack I use, and how to contact me.
         </p>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="btn" href="#proyectos">Ver proyectos</a>
-          <a class="btn" style="background:linear-gradient(90deg, var(--accent-2), var(--accent));" href="resume.pdf" target="_blank">Descargar CV</a>
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn" style="background:linear-gradient(90deg, var(--accent-2), var(--accent));" href="resume.pdf" target="_blank">Download Resume</a>
         </div>
-        <p class="note" style="margin-top: 10px;">Tip: actualiza este texto y enlaza tu <span class="kbd">resume.pdf</span> en la raíz del repositorio.</p>
+        <p class="note" style="margin-top: 10px;">Tip: update this text and link your <span class="kbd">resume.pdf</span> at the root of the repo.</p>
       </div>
       <div class="card">
-        <h3 style="margin:0 0 10px;">Stack principal</h3>
+        <h3 style="margin:0 0 10px;">Main Stack</h3>
         <div class="stack">
           <span class="chip">JavaScript</span>
           <span class="chip">TypeScript</span>
@@ -98,93 +97,93 @@
           <span class="chip">Node.js</span>
           <span class="chip">HTML/CSS</span>
         </div>
-        <p class="note" style="margin-top:12px;">Edita chips en <span class="kbd">index.html</span> &rarr; sección “Stack principal”.</p>
+        <p class="note" style="margin-top:12px;">Edit chips in <span class="kbd">index.html</span> → section “Main Stack”.</p>
       </div>
     </section>
 
-    <section id="proyectos">
-      <h2>Proyectos destacados</h2>
-      <p class="note">Añade tus proyectos editando los elementos .project. Sube una captura a <span class="kbd">/img</span>.</p>
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="note">Add your projects by editing .project elements. Upload screenshots to <span class="kbd">/img</span>.</p>
       <div class="grid">
         <article class="card project">
-          <img src="img/proyecto1.jpg" alt="Proyecto 1" />
-          <h3>App de Combate (React Native)</h3>
-          <p>Juego con creación de personajes, combate por turnos y sistema de puntuaciones.</p>
+          <img src="img/project1.jpg" alt="Project 1" />
+          <h3>Combat App (React Native)</h3>
+          <p>Game with character creation, turn-based combat, and score system.</p>
           <div class="stack">
             <span class="chip">React Native</span>
             <span class="chip">Expo</span>
             <span class="chip">JavaScript</span>
           </div>
           <div style="display:flex; gap:10px; margin-top:10px;">
-            <a href="https://github.com/tu-usuario/tu-repo-app" target="_blank" rel="noopener">Código</a>
+            <a href="https://github.com/your-username/your-app-repo" target="_blank" rel="noopener">Code</a>
             <a href="#" target="_blank" rel="noopener">Demo</a>
           </div>
         </article>
         <article class="card project">
-          <img src="img/proyecto2.jpg" alt="Proyecto 2" />
+          <img src="img/project2.jpg" alt="Project 2" />
           <h3>Buy & Sell (Java)</h3>
-          <p>Sistema CRUD para inventario, ventas y reportes con persistencia en archivos/DB.</p>
+          <p>CRUD system for inventory, sales, and reports with file/DB persistence.</p>
           <div class="stack">
             <span class="chip">Java</span>
             <span class="chip">Swing/JavaFX</span>
             <span class="chip">SQLite</span>
           </div>
           <div style="display:flex; gap:10px; margin-top:10px;">
-            <a href="https://github.com/tu-usuario/compra-venta" target="_blank" rel="noopener">Código</a>
+            <a href="https://github.com/your-username/buy-sell" target="_blank" rel="noopener">Code</a>
           </div>
         </article>
         <article class="card project">
-          <img src="img/proyecto3.jpg" alt="Proyecto 3" />
-          <h3>Teoría de la Computación</h3>
-          <p>Notas, ejemplos (DFA/NFA) y ejercicios resueltos basados en Sipser (3ra edición).</p>
+          <img src="img/project3.jpg" alt="Project 3" />
+          <h3>Theory of Computation</h3>
+          <p>Notes, examples (DFA/NFA), and solved exercises based on Sipser (3rd edition).</p>
           <div class="stack">
-            <span class="chip">Automatas</span>
-            <span class="chip">Teoría</span>
-            <span class="chip">Docentes</span>
+            <span class="chip">Automata</span>
+            <span class="chip">Theory</span>
+            <span class="chip">Teaching</span>
           </div>
           <div style="display:flex; gap:10px; margin-top:10px;">
-            <a href="https://github.com/tu-usuario/cs-theory-notes" target="_blank" rel="noopener">Notas</a>
+            <a href="https://github.com/your-username/cs-theory-notes" target="_blank" rel="noopener">Notes</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="sobre-mi" class="about">
+    <section id="about" class="about">
       <div class="card">
-        <h2>Sobre mí</h2>
-        <p>Breve bio: estudiante/desarrollador en UNO, me enfoco en apps móviles y teoría de la computación.
-           Me gusta construir productos útiles con código claro y bien documentado.</p>
+        <h2>About Me</h2>
+        <p>Short bio: student/developer at UNO, focused on mobile apps and computation theory.
+           I like building useful products with clean, well-documented code.</p>
         <ul>
-          <li>Ubicación: Nueva Orleans, LA</li>
-          <li>Intereses: React Native, Sistemas, Trading/Finanzas</li>
-          <li>Idiomas: Español / Inglés</li>
+          <li>Location: New Orleans, LA</li>
+          <li>Interests: React Native, Systems, Trading/Finance</li>
+          <li>Languages: Spanish / English</li>
         </ul>
       </div>
       <div class="card">
-        <h2>Servicios</h2>
+        <h2>Services</h2>
         <ul>
-          <li>Desarrollo de apps móviles (Expo/React Native)</li>
+          <li>Mobile app development (Expo/React Native)</li>
           <li>Web apps SPA/SSR (React)</li>
-          <li>Consultoría académica (CSCI 2467/3102)</li>
+          <li>Academic consulting (CSCI 2467/3102)</li>
         </ul>
       </div>
     </section>
 
-    <section id="contacto" class="card">
-      <h2>Contacto</h2>
-      <p class="note">Para un formulario sin backend puedes usar <a href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a> o <a href="https://getform.io/" target="_blank" rel="noopener">Getform</a>.</p>
-      <form action="#" method="post" onsubmit="alert('Este es un ejemplo. Conecta un servicio como Formspree.'); return false;" style="display:grid; gap:12px; max-width:520px;">
-        <input required name="name" placeholder="Nombre" style="padding:12px;border-radius:10px;border:1px solid #243244;background:#0c1527;color:#e2e8f0;outline: none; box-shadow: 0 0 0 0 var(--ring);" onfocus="this.style.boxShadow='0 0 0 4px var(--ring)';" onblur="this.style.boxShadow='none';" />
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p class="note">For a form without backend you can use <a href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a> or <a href="https://getform.io/" target="_blank" rel="noopener">Getform</a>.</p>
+      <form action="#" method="post" onsubmit="alert('This is a demo. Connect a service like Formspree.'); return false;" style="display:grid; gap:12px; max-width:520px;">
+        <input required name="name" placeholder="Name" style="padding:12px;border-radius:10px;border:1px solid #243244;background:#0c1527;color:#e2e8f0;outline: none; box-shadow: 0 0 0 0 var(--ring);" onfocus="this.style.boxShadow='0 0 0 4px var(--ring)';" onblur="this.style.boxShadow='none';" />
         <input required type="email" name="email" placeholder="Email" style="padding:12px;border-radius:10px;border:1px solid #243244;background:#0c1527;color:#e2e8f0;outline: none;" />
-        <textarea required name="message" rows="4" placeholder="Mensaje" style="padding:12px;border-radius:10px;border:1px solid #243244;background:#0c1527;color:#e2e8f0;"></textarea>
-        <button class="btn" type="submit">Enviar</button>
+        <textarea required name="message" rows="4" placeholder="Message" style="padding:12px;border-radius:10px;border:1px solid #243244;background:#0c1527;color:#e2e8f0;"></textarea>
+        <button class="btn" type="submit">Send</button>
       </form>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      © <span id="y"></span> Tu Nombre · Hecho con HTML/CSS. Código en <a href="https://github.com/tu-usuario/tu-repo" target="_blank" rel="noopener">GitHub</a>.
+      © <span id="y"></span> Your Name · Built with HTML/CSS. Code on <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener">GitHub</a>.
     </div>
   </footer>
 
