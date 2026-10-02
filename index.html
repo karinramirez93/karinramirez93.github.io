@@ -68,8 +68,9 @@
             <span class="chip">Firebase</span>
             <span class="chip">SQLite</span>
           </div>
-          <div style="display:flex; gap:10px; margin-top:10px;">
+          <div class="project-actions">
             <a href="https://github.com/karinramirez93/H.rock_MaterialManager" target="_blank" rel="noopener">View on GitHub</a>
+            <button class="text-button" type="button" id="open-material-manager-gallery">View Gallery</button>
           </div>
         </article>
 
@@ -197,12 +198,15 @@
         <h2 id="gallery-title">June 2026 Project — Equipment Installation &amp; Electrical Wiring</h2>
         <p>Project assigned in June 2026 involving equipment installation, cable routing, and wiring based on electrical plans connecting transformers, main electrical panels, and machinery.</p>
       </div>
+      <div class="gallery-page-top" id="gallery-page-top" tabindex="-1"></div>
       <div class="gallery-page" id="gallery-page"></div>
-      <div class="gallery-controls">
-        <button type="button" class="gallery-arrow" id="gallery-prev" aria-label="Previous four photos">&larr;</button>
-        <span id="gallery-page-status"></span>
-        <button type="button" class="gallery-arrow" id="gallery-next" aria-label="Next four photos">&rarr;</button>
-      </div>
+      <nav class="gallery-controls" aria-label="Gallery pagination">
+        <button type="button" class="gallery-page-button" id="gallery-first">First</button>
+        <button type="button" class="gallery-page-button" id="gallery-prev">Previous</button>
+        <span id="gallery-page-status" aria-live="polite"></span>
+        <button type="button" class="gallery-page-button" id="gallery-next">Next</button>
+        <button type="button" class="gallery-page-button" id="gallery-last">Last</button>
+      </nav>
     </section>
   </div>
 
@@ -225,57 +229,110 @@
   </footer>
 
   <script>
+    // Keep the copyright year current without requiring a manual yearly edit.
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    const hRockerPhotoNames = ["20260626_111832.jpg","20260626_153318.jpg","20260626_153336.jpg","20260630_164043.jpg","20260630_164121.jpg","20260630_164201.jpg","20260630_164217.jpg","20260630_164233.jpg","20260630_164254.jpg","20260630_164313.jpg","20260630_164329.jpg","20260630_164349.jpg","20260630_164409.jpg","20260630_164429.jpg","20260630_164449.jpg","20260630_164521.jpg","20260630_164543.jpg","20260630_164607.jpg","20260630_164643.jpg","20260630_164650.jpg","20260630_164657.jpg","20260701_144413.jpg","20260702_093223.jpg","20260702_093236.jpg","20260702_093246.jpg","20260714_065623.jpg","20260714_065634.jpg","20260715_091602.jpg","20260715_091603.jpg","20260715_162855.jpg","20260715_162858.jpg","20260716_063228.jpg","20260716_063358.jpg","20260716_063402.jpg","20260716_063413.jpg","20260716_063428.jpg","20260716_063432.jpg","20260716_063435.jpg","20260716_063602.jpg","20260716_112803.jpg","20260716_112807.jpg","20260716_112936.jpg","20260716_113429.jpg","20260801_141747.jpg","20260803_092223.jpg","20260806_114858.jpg","20260806_120246.jpg","20260806_120311.jpg","20260806_120329.jpg","20260807_083501.jpg","20260807_111853.jpg","20260808_084152.jpg","20260808_091532.jpg","20260808_093905.jpg","20260810_081345.jpg","20260811_111538.jpg","20260811_111540.jpg","20260811_111542.jpg","20260811_111545.jpg","20260815_091405.jpg","20260815_091410.jpg","20260815_091416.jpg","20260815_091420.jpg","20260815_143715.jpg","20260815_143719.jpg"];
-    const hRockerImageKitBase = 'https://ik.imagekit.io/karinportfolio/portafolio/experience/industrial_electrical/h_rocker_2026/';
+    /*
+     * Gallery data
+     * ------------
+     * Each project defines its own title, description, image source, and image list.
+     * Future project galleries can be added here and opened with the same reusable modal.
+     */
+    const galleries = {
+      industrial2026: {
+        eyebrow: 'Industrial Electrical · Project Gallery',
+        title: 'June 2026 Project — Equipment Installation & Electrical Wiring',
+        description: 'Project assigned in June 2026 involving equipment installation, cable routing, and wiring based on electrical plans connecting transformers, main electrical panels, and machinery.',
+        imageNames: ["20260626_111832.jpg","20260626_153318.jpg","20260626_153336.jpg","20260630_164043.jpg","20260630_164121.jpg","20260630_164201.jpg","20260630_164217.jpg","20260630_164233.jpg","20260630_164254.jpg","20260630_164313.jpg","20260630_164329.jpg","20260630_164349.jpg","20260630_164409.jpg","20260630_164429.jpg","20260630_164449.jpg","20260630_164521.jpg","20260630_164543.jpg","20260630_164607.jpg","20260630_164643.jpg","20260630_164650.jpg","20260630_164657.jpg","20260701_144413.jpg","20260702_093223.jpg","20260702_093236.jpg","20260702_093246.jpg","20260714_065623.jpg","20260714_065634.jpg","20260715_091602.jpg","20260715_091603.jpg","20260715_162855.jpg","20260715_162858.jpg","20260716_063228.jpg","20260716_063358.jpg","20260716_063402.jpg","20260716_063413.jpg","20260716_063428.jpg","20260716_063432.jpg","20260716_063435.jpg","20260716_063602.jpg","20260716_112803.jpg","20260716_112807.jpg","20260716_112936.jpg","20260716_113429.jpg","20260801_141747.jpg","20260803_092223.jpg","20260806_114858.jpg","20260806_120246.jpg","20260806_120311.jpg","20260806_120329.jpg","20260807_083501.jpg","20260807_111853.jpg","20260808_084152.jpg","20260808_091532.jpg","20260808_093905.jpg","20260810_081345.jpg","20260811_111538.jpg","20260811_111540.jpg","20260811_111542.jpg","20260811_111545.jpg","20260815_091405.jpg","20260815_091410.jpg","20260815_091416.jpg","20260815_091420.jpg","20260815_143715.jpg","20260815_143719.jpg"],
+        imageUrl: (fileName, width) =>
+          'https://ik.imagekit.io/karinportfolio/portafolio/experience/industrial_electrical/h_rocker_2026/' +
+          fileName + '?tr=w-' + width + ',q-80',
+        altPrefix: 'Industrial electrical project photo'
+      },
+      materialManager: {
+        eyebrow: 'Software Development · Project Gallery',
+        title: 'H. Rocker Material Manager',
+        description: 'Application screenshots showing the material catalog, material requirements, cable and wire workflows, reference information, and generated outputs.',
+        imageNames: ["Screenshot_20260929_161031_HrockerMaterialManager.jpg","Screenshot_20260929_161037_HrockerMaterialManager.jpg","Screenshot_20260929_161042_HrockerMaterialManager.jpg","Screenshot_20260929_161047_HrockerMaterialManager.jpg","Screenshot_20260929_161057_HrockerMaterialManager.jpg","Screenshot_20260929_161103_HrockerMaterialManager.jpg","Screenshot_20260929_161140_HrockerMaterialManager.jpg","Screenshot_20260929_161146_HrockerMaterialManager.jpg","Screenshot_20260929_161150_HrockerMaterialManager.jpg","Screenshot_20260929_161201_HrockerMaterialManager.jpg","Screenshot_20260929_161510_HrockerMaterialManager.jpg"],
+        imageUrl: (fileName) =>
+          'https://raw.githubusercontent.com/karinramirez93/H.rock_MaterialManager/main/assets/' +
+          encodeURIComponent(fileName),
+        altPrefix: 'H. Rocker Material Manager screenshot'
+      }
+    };
+
+    // Shared gallery state. The same modal is reused for experience and software projects.
     const photosPerPage = 4;
+    let activeGallery = null;
     let galleryPageIndex = 0;
     let lightboxIndex = 0;
 
+    // Cache frequently used elements so the gallery functions remain easy to read and maintain.
     const galleryModal = document.getElementById('project-gallery-modal');
+    const galleryDialog = galleryModal.querySelector('.gallery-dialog');
+    const galleryPageTop = document.getElementById('gallery-page-top');
     const galleryPage = document.getElementById('gallery-page');
     const galleryPageStatus = document.getElementById('gallery-page-status');
+    const galleryFirst = document.getElementById('gallery-first');
     const galleryPrev = document.getElementById('gallery-prev');
     const galleryNext = document.getElementById('gallery-next');
+    const galleryLast = document.getElementById('gallery-last');
+    const galleryEyebrow = galleryModal.querySelector('.gallery-eyebrow');
+    const galleryTitle = document.getElementById('gallery-title');
+    const galleryDescription = galleryModal.querySelector('.gallery-heading > p:last-child');
     const lightbox = document.getElementById('gallery-lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxStatus = document.getElementById('lightbox-status');
 
-    function imageUrl(fileName, width) {
-      return hRockerImageKitBase + fileName + '?tr=w-' + width + ',q-80';
-    }
-
-    function renderGalleryPage() {
+    // Render only four images at a time. This keeps large galleries fast on desktop and mobile.
+    function renderGalleryPage(shouldScroll = false) {
       const firstPhoto = galleryPageIndex * photosPerPage;
-      const visiblePhotos = hRockerPhotoNames.slice(firstPhoto, firstPhoto + photosPerPage);
+      const visiblePhotos = activeGallery.imageNames.slice(firstPhoto, firstPhoto + photosPerPage);
       galleryPage.innerHTML = '';
 
       visiblePhotos.forEach((fileName, offset) => {
+        const photoIndex = firstPhoto + offset;
         const button = document.createElement('button');
         button.className = 'gallery-thumbnail';
         button.type = 'button';
+        button.setAttribute('aria-label', 'Open photo ' + (photoIndex + 1));
+
         const image = document.createElement('img');
-        image.src = imageUrl(fileName, 700);
-        image.alt = 'Industrial electrical project photo ' + (firstPhoto + offset + 1);
+        image.src = activeGallery.imageUrl(fileName, 700);
+        image.alt = activeGallery.altPrefix + ' ' + (photoIndex + 1);
         image.loading = 'lazy';
+        image.decoding = 'async';
+
         button.appendChild(image);
-        button.addEventListener('click', () => openLightbox(firstPhoto + offset));
+        button.addEventListener('click', () => openLightbox(photoIndex));
         galleryPage.appendChild(button);
       });
 
-      const pageCount = Math.ceil(hRockerPhotoNames.length / photosPerPage);
+      const pageCount = Math.ceil(activeGallery.imageNames.length / photosPerPage);
       galleryPageStatus.textContent = 'Page ' + (galleryPageIndex + 1) + ' of ' + pageCount;
+      galleryFirst.disabled = galleryPageIndex === 0;
       galleryPrev.disabled = galleryPageIndex === 0;
       galleryNext.disabled = galleryPageIndex === pageCount - 1;
+      galleryLast.disabled = galleryPageIndex === pageCount - 1;
+
+      // On phones, return to the beginning of the image grid after changing pages.
+      if (shouldScroll) {
+        galleryPageTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
-    function openGallery() {
+    // Open any configured project gallery in the shared modal.
+    function openGallery(galleryKey) {
+      activeGallery = galleries[galleryKey];
       galleryPageIndex = 0;
+      galleryEyebrow.textContent = activeGallery.eyebrow;
+      galleryTitle.textContent = activeGallery.title;
+      galleryDescription.textContent = activeGallery.description;
       renderGalleryPage();
       galleryModal.classList.add('is-open');
       galleryModal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('modal-open');
+      galleryDialog.scrollTop = 0;
     }
 
     function closeGallery() {
@@ -284,9 +341,19 @@
       if (!lightbox.classList.contains('is-open')) document.body.classList.remove('modal-open');
     }
 
+    // Change pages from one place so First, Previous, Next, and Last behave consistently.
+    function goToGalleryPage(pageIndex) {
+      const lastPage = Math.ceil(activeGallery.imageNames.length / photosPerPage) - 1;
+      galleryPageIndex = Math.max(0, Math.min(pageIndex, lastPage));
+      renderGalleryPage(true);
+    }
+
+    // Lightbox functions show one larger image while preserving navigation through the full project.
     function renderLightbox() {
-      lightboxImage.src = imageUrl(hRockerPhotoNames[lightboxIndex], 1800);
-      lightboxStatus.textContent = (lightboxIndex + 1) + ' / ' + hRockerPhotoNames.length;
+      const fileName = activeGallery.imageNames[lightboxIndex];
+      lightboxImage.src = activeGallery.imageUrl(fileName, 1800);
+      lightboxImage.alt = activeGallery.altPrefix + ' ' + (lightboxIndex + 1);
+      lightboxStatus.textContent = (lightboxIndex + 1) + ' / ' + activeGallery.imageNames.length;
     }
 
     function openLightbox(index) {
@@ -301,44 +368,50 @@
       lightbox.setAttribute('aria-hidden', 'true');
     }
 
-    document.getElementById('open-hrocker-gallery').addEventListener('click', openGallery);
-    document.querySelectorAll('[data-close-gallery]').forEach(element => element.addEventListener('click', closeGallery));
-    document.querySelectorAll('[data-close-lightbox]').forEach(element => element.addEventListener('click', closeLightbox));
+    // Gallery launch buttons. Add future projects here after defining their data above.
+    document.getElementById('open-hrocker-gallery').addEventListener('click', () => openGallery('industrial2026'));
+    document.getElementById('open-material-manager-gallery').addEventListener('click', () => openGallery('materialManager'));
 
-    galleryPrev.addEventListener('click', () => {
-      if (galleryPageIndex > 0) {
-        galleryPageIndex--;
-        renderGalleryPage();
-      }
-    });
+    // Modal close controls include both the X button and the dark backdrop.
+    document.querySelectorAll('[data-close-gallery]').forEach(element =>
+      element.addEventListener('click', closeGallery)
+    );
+    document.querySelectorAll('[data-close-lightbox]').forEach(element =>
+      element.addEventListener('click', closeLightbox)
+    );
 
-    galleryNext.addEventListener('click', () => {
-      const lastPage = Math.ceil(hRockerPhotoNames.length / photosPerPage) - 1;
-      if (galleryPageIndex < lastPage) {
-        galleryPageIndex++;
-        renderGalleryPage();
-      }
-    });
+    // Four-way pagination for project galleries.
+    galleryFirst.addEventListener('click', () => goToGalleryPage(0));
+    galleryPrev.addEventListener('click', () => goToGalleryPage(galleryPageIndex - 1));
+    galleryNext.addEventListener('click', () => goToGalleryPage(galleryPageIndex + 1));
+    galleryLast.addEventListener('click', () =>
+      goToGalleryPage(Math.ceil(activeGallery.imageNames.length / photosPerPage) - 1)
+    );
 
+    // Navigate individual full-size photos without returning to the four-image page.
     document.getElementById('lightbox-prev').addEventListener('click', () => {
-      lightboxIndex = (lightboxIndex - 1 + hRockerPhotoNames.length) % hRockerPhotoNames.length;
+      lightboxIndex = (lightboxIndex - 1 + activeGallery.imageNames.length) % activeGallery.imageNames.length;
       renderLightbox();
     });
-
     document.getElementById('lightbox-next').addEventListener('click', () => {
-      lightboxIndex = (lightboxIndex + 1) % hRockerPhotoNames.length;
+      lightboxIndex = (lightboxIndex + 1) % activeGallery.imageNames.length;
       renderLightbox();
     });
 
+    // Keyboard navigation improves desktop accessibility and makes gallery review faster.
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
         if (lightbox.classList.contains('is-open')) closeLightbox();
         else if (galleryModal.classList.contains('is-open')) closeGallery();
       }
-      if (lightbox.classList.contains('is-open') && event.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
-      if (lightbox.classList.contains('is-open') && event.key === 'ArrowRight') document.getElementById('lightbox-next').click();
-    });
 
+      if (lightbox.classList.contains('is-open') && event.key === 'ArrowLeft') {
+        document.getElementById('lightbox-prev').click();
+      }
+      if (lightbox.classList.contains('is-open') && event.key === 'ArrowRight') {
+        document.getElementById('lightbox-next').click();
+      }
+    });
   </script>
 </body>
 </html>
