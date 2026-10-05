@@ -16,9 +16,29 @@
   <header>
     <div class="container nav">
       <a class="logo" href="#">&lt;/&gt; Mr. Karin Ramirez</a>
-      <nav class="links">
+
+      <!--
+        MOBILE NAVIGATION TOGGLE
+        Hidden on larger screens and shown on tablets/phones. aria-expanded is updated
+        by JavaScript so screen readers know whether the menu is currently open.
+      -->
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="links" id="primary-navigation" aria-label="Primary navigation">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="resume.html">Resume</a>
         <a href="#contact">Contact</a>
         <a class="btn" href="https://github.com/karinramirez93" target="_blank" rel="noopener">GitHub</a>
@@ -237,6 +257,44 @@
   <script>
     // Keep the copyright year current without requiring a manual yearly edit.
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    /*
+     * Responsive navigation
+     * ---------------------
+     * Desktop keeps the navigation links visible. On tablets and phones the hamburger
+     * button opens a compact menu. The menu closes after selecting a local link, when
+     * pressing Escape, or when resizing back to desktop width.
+     */
+    const navToggle = document.getElementById('nav-toggle');
+    const primaryNavigation = document.getElementById('primary-navigation');
+
+    function setNavigationOpen(isOpen) {
+      primaryNavigation.classList.toggle('is-open', isOpen);
+      navToggle.classList.toggle('is-open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    }
+
+    navToggle.addEventListener('click', () => {
+      setNavigationOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    primaryNavigation.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) setNavigationOpen(false);
+      });
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+        setNavigationOpen(false);
+        navToggle.focus();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) setNavigationOpen(false);
+    });
 
     /*
      * Gallery data
