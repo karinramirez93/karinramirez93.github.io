@@ -723,3 +723,158 @@ input:focus, textarea:focus {
     overflow: hidden;
   }
 }
+
+
+/* ==========================================================================
+   PROFESSIONAL SITE FOOTER
+   --------------------------------------------------------------------------
+   The footer exposes only public professional destinations and replaces the
+   old placeholder repository link. It stays compact on desktop and wraps
+   cleanly on tablets and phones.
+   ========================================================================== */
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 28px;
+}
+
+.footer-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-copy strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.footer-copy span {
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 650px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+
+/* ==========================================================================
+   INLINE RESUME HEADER LINKS
+   --------------------------------------------------------------------------
+   Unlike the main portfolio navigation, the resume intentionally keeps its
+   three short public links visible in a single row on every screen size.
+   This rule comes after the older responsive navigation styles so the resume
+   never switches to a hamburger menu.
+   ========================================================================== */
+
+.resume-nav-inline {
+  position: static;
+  inset: auto;
+  z-index: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: nowrap;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+}
+
+.resume-nav-inline a {
+  min-height: auto;
+  padding: 5px 0;
+  border-radius: 0;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.resume-nav-inline a:hover,
+.resume-nav-inline a:focus-visible {
+  background: transparent;
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .resume-nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .resume-nav-inline {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .resume-nav-inline a {
+    min-height: auto;
+    padding: 4px 0;
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 430px) {
+  .resume-nav {
+    gap: 8px;
+  }
+
+  .resume-nav .logo {
+    max-width: none;
+    overflow: visible;
+    text-overflow: clip;
+    font-size: 13px;
+  }
+
+  .resume-nav-inline {
+    gap: 8px;
+  }
+
+  .resume-nav-inline a {
+    font-size: 11.5px;
+  }
+}
