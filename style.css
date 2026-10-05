@@ -586,3 +586,61 @@ input:focus, textarea:focus {
     text-align: center;
   }
 }
+
+
+/* ==========================================================================
+   COMPACT RESUME FOOTER ACTIONS
+   --------------------------------------------------------------------------
+   Keep LinkedIn, GitHub, and Portfolio on one line, including on phones.
+   Short labels and equal-width buttons make the row easier to scan and tap.
+   ========================================================================== */
+
+.resume-final-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.resume-final-actions .resume-action-link {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.resume-action-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+/* Override the general mobile rule that stacks resume buttons vertically. */
+@media (max-width: 520px) {
+  .resume-final-actions {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .resume-final-actions .resume-action-link {
+    width: auto;
+    min-height: 46px;
+    padding: 9px 5px;
+    font-size: 12.5px;
+    border-radius: 9px;
+  }
+
+  .resume-action-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
