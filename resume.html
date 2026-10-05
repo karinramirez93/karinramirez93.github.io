@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Resume page metadata. Keep this title concise because it appears in browser tabs and search results. -->
+  <title>Resume | Mr. Karin Ramirez</title>
+  <meta
+    name="description"
+    content="Digital resume of Karin Ramirez-Reyes, Computer Science student and software developer in New Orleans, Louisiana."
+  />
+
+  <!-- The resume page reuses the main portfolio stylesheet so both pages remain visually consistent. -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="resume-page">
+  <!--
+    RESUME HEADER
+    This lightweight header intentionally contains only the actions a recruiter is most likely to need:
+    return to the portfolio, download the PDF, or open the professional profiles.
+  -->
+  <header class="resume-site-header">
+    <div class="container resume-nav">
+      <a class="logo" href="index.html">&lt;/&gt; Mr. Karin Ramirez</a>
+
+      <nav class="resume-nav-links" aria-label="Resume navigation">
+        <a href="index.html">Portfolio</a>
+        <a href="resume.pdf" download>Download PDF</a>
+        <a href="https://www.linkedin.com/in/karin-ramirez-reyes" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/karinramirez93" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container resume-shell">
+    <!--
+      RESUME INTRO
+      The digital version is intentionally formatted as readable web content instead of embedding a PDF.
+      This makes the resume easier to read on phones and tablets while preserving a PDF download option.
+    -->
+    <section class="resume-intro">
+      <p class="resume-kicker">Digital Resume</p>
+      <h1>Karin Ramirez-Reyes</h1>
+      <p class="resume-role">Computer Science Student | Software Developer | Technical Problem Solver</p>
+
+      <!-- Contact details wrap automatically on smaller screens. -->
+      <div class="resume-contact" aria-label="Contact information">
+        <span>Harahan, LA</span>
+        <a href="tel:+15049756323">(504) 975-6323</a>
+        <a href="mailto:karinramir1@gmail.com">karinramir1@gmail.com</a>
+      </div>
+
+      <!-- Primary resume actions remain large enough for touch screens. -->
+      <div class="resume-actions">
+        <a class="btn" href="resume.pdf" download>Download Resume PDF</a>
+        <button class="btn btn-secondary" type="button" onclick="window.print()">Print / Save as PDF</button>
+        <a class="btn btn-secondary" href="index.html">Back to Portfolio</a>
+      </div>
+    </section>
+
+    <!--
+      PROFESSIONAL SUMMARY
+      Keep this section short. The portfolio provides deeper project and experience details.
+    -->
+    <section class="resume-section card">
+      <h2>Professional Summary</h2>
+      <p>
+        Computer Science student and software developer with hands-on experience building Java and
+        cross-platform mobile applications, supported by a broad technical background in industrial
+        electrical systems, computer networking, hardware maintenance, construction, and data quality.
+        Strong foundation in object-oriented programming, data structures, client-server systems,
+        databases, testing, and Git-based development. Brings practical troubleshooting, leadership,
+        attention to detail, and disciplined decision-making to technical work. Seeking a software
+        development internship or entry-level opportunity.
+      </p>
+    </section>
+
+    <!--
+      TECHNICAL SKILLS
+      Each skill group is separated so recruiters can scan the page quickly on desktop or mobile.
+    -->
+    <section class="resume-section card">
+      <h2>Technical Skills</h2>
+      <div class="resume-skill-list">
+        <p><strong>Programming Languages:</strong> Java, JavaScript, SQL, Python, C, C#, C++</p>
+        <p><strong>Frameworks &amp; Development:</strong> React Native, Expo, JavaFX, Swing, Android Studio</p>
+        <p><strong>Testing &amp; Debugging:</strong> JUnit, Unit Testing, Debugging</p>
+        <p><strong>Databases &amp; Cloud:</strong> MySQL, SQLite, Firebase, Amazon Web Services (AWS)</p>
+        <p><strong>Networking &amp; Systems:</strong> Client-Server Architecture, Socket Programming, TCP/IP, Wireshark</p>
+        <p><strong>Tools &amp; Platforms:</strong> Git, GitHub, Git Bash, Linux, VS Code, Eclipse, Visual Studio, Vim, Micro, Nano</p>
+      </div>
+    </section>
+
+    <!--
+      PROFESSIONAL STRENGTHS
+      These are intentionally presented as concise tags instead of a long paragraph.
+    -->
+    <section class="resume-section card">
+      <h2>Professional Strengths</h2>
+      <div class="stack">
+        <span class="chip">Leadership</span>
+        <span class="chip">Teamwork</span>
+        <span class="chip">Training &amp; Mentoring</span>
+        <span class="chip">Problem Solving</span>
+        <span class="chip">Critical Thinking</span>
+        <span class="chip">Risk Management</span>
+        <span class="chip">Decision-Making Under Uncertainty</span>
+        <span class="chip">Attention to Detail</span>
+        <span class="chip">Accuracy</span>
+        <span class="chip">Adaptability</span>
+        <span class="chip">Responsibility</span>
+        <span class="chip">Emotional Discipline</span>
+        <span class="chip">Time Management</span>
+        <span class="chip">Organization</span>
+        <span class="chip">Pattern Recognition</span>
+        <span class="chip">Quality Control</span>
+        <span class="chip">Resilience</span>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="resume-section card">
+      <h2>Education</h2>
+
+      <article class="resume-entry">
+        <div class="resume-entry-heading">
+          <h3>LSU New Orleans</h3>
+          <span>Expected Fall 2026</span>
+        </div>
+        <p>Bachelor of Science in Computer Science</p>
+        <p class="resume-meta">GPA: 3.22 | Relevant Coursework: Data Structures, Systems Programming, Mobile Application Development</p>
+      </article>
+
+      <article class="resume-entry">
+        <div class="resume-entry-heading">
+          <h3>Delgado Community College</h3>
+          <span>May 2021</span>
+        </div>
+        <p>Associate of Applied Science in Computer Network Technology</p>
+      </article>
+
+      <article class="resume-entry">
+        <div class="resume-entry-heading">
+          <h3>Delgado Community College</h3>
+          <span>December 2017</span>
+        </div>
+        <p>Certificate of Completion - English as a Second Language Studies</p>
+      </article>
+
+      <article class="resume-entry">
+        <div class="resume-entry-heading">
+          <h3>Instituto Tecnico Honduras</h3>
+          <span>December 2011</span>
+        </div>
+        <p>Technical High School Diploma - Refrigeration &amp; Air Conditioning</p>
+      </article>
+    </section>
+
+    <!--
+      SELECTED SOFTWARE PROJECTS
+      Only representative projects are shown here. The main portfolio remains the richer project showcase.
+    -->
+    <section class="resume-section card">
+      <h2>Selected Software Projects</h2>
+
+      <article class="resume-entry">
+        <h3>H. Rocker Material Manager</h3>
+        <p class="resume-meta">React Native | JavaScript | Firebase | SQLite</p>
+        <ul>
+          <li>Built a cross-platform mobile application for material requirements and cable/wire workflows, including reusable catalog data, search, local storage, image handling, and PDF/image output.</li>
+          <li>Designed the application around practical field workflows with responsive interfaces, offline-friendly behavior, and efficient data synchronization.</li>
+        </ul>
+      </article>
+
+      <article class="resume-entry">
+        <h3>Multiplayer Matching Game</h3>
+        <p class="resume-meta">Client/Server Application</p>
+        <ul>
+          <li>Developed a multiplayer game around centralized client-server communication, including player registration, lobby flow, synchronized game state, difficulty selection, turns, scoring, and match results.</li>
+          <li>Implemented both terminal and graphical interaction paths while keeping connected players synchronized.</li>
+        </ul>
+      </article>
+
+      <article class="resume-entry">
+        <h3>Multithreaded Group Chat</h3>
+        <p class="resume-meta">Socket Programming</p>
+        <ul>
+          <li>Built a client-server chat application supporting multiple simultaneous users, usernames, message broadcasting, active-user queries, and connection management through socket communication.</li>
+        </ul>
+      </article>
+
+      <article class="resume-entry">
+        <h3>UNO Map App</h3>
+        <p class="resume-meta">Academic Team Project | React Native</p>
+        <ul>
+          <li>Collaborated on a multi-screen mobile application for campus information and student resources, working within a shared codebase and team development workflow.</li>
+        </ul>
+      </article>
+
+      <article class="resume-entry">
+        <h3>Additional Projects</h3>
+        <p>Snake Evolution (Python/Turtle), Java applications and data-structure coursework, React Native API/Firebase assignments, and networking analysis using Wireshark.</p>
+      </article>
+    </section>
+
+    <!--
+      PROFESSIONAL & TECHNICAL EXPERIENCE
+      Entries are ordered from most recent to oldest to match standard resume conventions.
+    -->
+    <section class="resume-section card">
+      <h2>Professional &amp; Technical Experience</h2>
+
+      <article class="resume-entry">
+        <div class="resume-entry-heading">
+          <h3>Industrial Electrician - H. Rocker Electric</h3>
+          <span>2020 - Present</span>
+        </div>
+        <ul>
+          <li>Install and route industrial electrical wiring and cabling while following equipment requirements, wiring plans, safety procedures, and project specifications.</li>
+          <li>Troubleshoot electrical and equipment-related issues using a structured approach to identify root causes under production and time constraints.</li>
+          <li>Led a six-person project team, trained newly hired employees, assigned and coordinated work, and collaborated with other groups to keep the project moving forward.</li>
+          <li>Built practical experience reading wiring plans, understanding cable requirements, and connecting electrical distribution paths from transformers and panels to industrial equipment.</li>
+        </ul>
+      </article>
+
+      <article class="resume-entry">
+        <h3>Computer Maintenance - Independent / Personal Projects</h3>
+        <ul>
+          <li>Maintain, clean, repair, and upgrade laptops and desktops, including memory, storage, cooling systems, and other hardware components.</li>
+          <li>Diagnose performance and hardware issues, select appropriate upgrades, and improve system reliability through practical troubleshooting.</li>
+        </ul>
+      </article>
+
+      <article class="resume-entry">
+        <div class="resume-entry-heading">
+          <h3>Commercial / Residential Construction Worker</h3>
+          <span>Nov 2013 - 2021</span>
+        </div>
+        <ul>
+          <li>Worked across residential and commercial construction, including framing, concrete preparation, electrical wiring, water and drainage piping, drywall, painting, roofing, and finish work.</li>
+          <li>Developed a practical understanding of structural, electrical, and plumbing systems, building requirements, repair work, and troubleshooting behind finished walls.</li>
+          <li>Strengthened attention to detail through painting and finish work, where preparation, accuracy, and final presentation directly affected quality and customer satisfaction.</li>
+        </ul>
+      </article>
+
+      <article class="resume-entry">
+        <div class="resume-entry-heading">
+          <h3>Records Digitization &amp; Data Quality Clerk - Honduras</h3>
+          <span>2010 - Oct 2013</span>
+        </div>
+        <ul>
+          <li>Supported a large-scale records digitization project converting paper-based employee health coverage and contribution records into electronic format.</li>
+          <li>Reviewed handwritten records for missing or inconsistent information and compared data across reporting periods, including matching national identification numbers when names varied between records.</li>
+          <li>Maintained accuracy while processing high volumes of records and meeting daily productivity targets, strengthening data verification, pattern recognition, concentration, organization, and quality-control skills.</li>
+          <li>Followed established procedures while balancing speed and accuracy, helping identify discrepancies before records were finalized.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!--
+      ADDITIONAL INTERESTS
+      The resume keeps these intentionally brief; LinkedIn can provide the longer personal/professional story later.
+    -->
+    <section class="resume-section card">
+      <h2>Additional Interests</h2>
+      <ul>
+        <li>Financial markets and long-term options strategies (personal study): risk management, position sizing, scenario analysis, loss management, emotional discipline, and interpreting market/technology news before making decisions.</li>
+        <li>Technology trends, PC hardware and maintenance, personal software projects, PC gaming, fitness, and family activities.</li>
+        <li>Languages: Spanish and English.</li>
+      </ul>
+    </section>
+
+    <!-- Bottom actions prevent mobile visitors from having to scroll back to the top to download the resume. -->
+    <section class="resume-bottom-actions" aria-label="Resume actions">
+      <a class="btn" href="resume.pdf" download>Download Resume PDF</a>
+      <a class="btn btn-secondary" href="index.html">Return to Portfolio</a>
+    </section>
+  </main>
+
+  <!--
+    PRINT BEHAVIOR
+    window.print() is intentionally used instead of an external dependency. On most desktop and mobile
+    browsers this provides a native print dialog with a "Save as PDF" option.
+  -->
+</body>
+</html>
