@@ -141,3 +141,329 @@ input:focus, textarea:focus {
   #gallery-page-status { order: -1; flex-basis: 100%; margin-bottom: 2px; }
   .lightbox-arrow { width: 42px; height: 42px; }
 }
+
+
+/* ==========================================================================
+   DIGITAL RESUME PAGE
+   --------------------------------------------------------------------------
+   These styles are shared only by resume.html. The digital resume is designed
+   to remain readable on desktop, laptop, tablet, and phone screens without
+   forcing visitors to zoom into a PDF.
+   ========================================================================== */
+
+.resume-page {
+  background:
+    radial-gradient(900px 500px at 90% -10%, rgba(56,189,248,0.08), transparent),
+    radial-gradient(800px 500px at -10% 0%, rgba(167,139,250,0.08), transparent),
+    var(--bg);
+}
+
+/* The resume header remains visible while scrolling, matching the main site. */
+.resume-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: #0b1220ee;
+  border-bottom: 1px solid #1f2937;
+}
+
+.resume-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+}
+
+.resume-nav .logo {
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.resume-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Main content width is intentionally narrower than the portfolio for easier reading. */
+.resume-shell {
+  width: min(920px, 92%);
+  padding-bottom: 48px;
+}
+
+.resume-intro {
+  text-align: center;
+  padding: 48px 0 26px;
+}
+
+.resume-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resume-intro h1 {
+  margin: 0;
+  font-size: clamp(30px, 6vw, 48px);
+  line-height: 1.05;
+}
+
+.resume-role {
+  margin: 10px auto 0;
+  color: var(--muted);
+  font-size: clamp(15px, 2.5vw, 19px);
+}
+
+.resume-contact {
+  display: flex;
+  justify-content: center;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.resume-actions,
+.resume-bottom-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+/* Secondary buttons keep the same shape as .btn but use a quieter treatment. */
+.btn-secondary {
+  background: #0c1527;
+  color: var(--text);
+  border: 1px solid #243244;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+/* Each resume section uses the existing card design for visual consistency. */
+.resume-section {
+  margin-bottom: 16px;
+}
+
+.resume-section h2 {
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-size: 21px;
+}
+
+.resume-section > p,
+.resume-section li,
+.resume-entry p {
+  color: #cbd5e1;
+  line-height: 1.58;
+}
+
+.resume-skill-list p {
+  margin: 7px 0;
+}
+
+.resume-entry {
+  padding: 13px 0;
+  border-top: 1px solid #1f2937;
+}
+
+.resume-entry:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.resume-entry:last-child {
+  padding-bottom: 0;
+}
+
+.resume-entry h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.resume-entry p {
+  margin: 5px 0 0;
+}
+
+.resume-entry ul,
+.resume-section > ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.resume-entry li,
+.resume-section > ul li {
+  margin-bottom: 6px;
+}
+
+.resume-entry-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.resume-entry-heading span,
+.resume-meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.resume-bottom-actions {
+  padding: 14px 0 8px;
+}
+
+/* --------------------------------------------------------------------------
+   RESUME RESPONSIVE RULES
+   Tablet and phone layouts prioritize legibility and touch-friendly controls.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .resume-nav {
+    align-items: flex-start;
+  }
+
+  /* Keep the header compact on small screens instead of hiding navigation entirely. */
+  .resume-nav-links {
+    justify-content: flex-end;
+    gap: 9px 12px;
+    font-size: 13px;
+  }
+
+  .resume-intro {
+    padding-top: 34px;
+  }
+
+  .resume-entry-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .resume-actions .btn,
+  .resume-bottom-actions .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .resume-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .resume-nav .logo {
+    text-align: center;
+  }
+
+  .resume-nav-links {
+    justify-content: center;
+  }
+
+  .resume-shell {
+    width: min(94%, 920px);
+  }
+
+  .resume-section {
+    padding: 15px;
+  }
+
+  /* Full-width action buttons are easier to tap on narrow phones. */
+  .resume-actions,
+  .resume-bottom-actions {
+    flex-direction: column;
+  }
+
+  .resume-actions .btn,
+  .resume-bottom-actions .btn {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PRINT / SAVE-AS-PDF RULES
+   The digital page can be printed cleanly without navigation or dark panels.
+   -------------------------------------------------------------------------- */
+@media print {
+  body.resume-page {
+    background: #fff;
+    color: #111;
+  }
+
+  .resume-site-header,
+  .resume-actions,
+  .resume-bottom-actions,
+  .resume-kicker {
+    display: none !important;
+  }
+
+  .resume-shell {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .resume-intro {
+    padding: 0 0 14px;
+  }
+
+  .resume-role,
+  .resume-contact,
+  .resume-entry-heading span,
+  .resume-meta {
+    color: #444;
+  }
+
+  .resume-section {
+    background: #fff;
+    color: #111;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 14px;
+    break-inside: avoid;
+  }
+
+  .resume-section h2 {
+    color: #111;
+    border-bottom: 1px solid #999;
+    padding-bottom: 3px;
+  }
+
+  .resume-section > p,
+  .resume-section li,
+  .resume-entry p {
+    color: #111;
+  }
+
+  .resume-entry {
+    border-color: #ddd;
+    break-inside: avoid;
+  }
+
+  a {
+    color: #111;
+    text-decoration: none;
+  }
+
+  .chip {
+    color: #111;
+    background: #fff;
+    border-color: #bbb;
+  }
+}
