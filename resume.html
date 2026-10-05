@@ -8,7 +8,7 @@
   <title>Resume | Mr. Karin Ramirez</title>
   <meta
     name="description"
-    content="Digital resume of Karin Ramirez-Reyes, Computer Science student and software developer in New Orleans, Louisiana."
+    content="Digital professional profile of Karin Ramirez-Reyes, Computer Science student and software developer."
   />
 
   <!-- The resume page reuses the main portfolio stylesheet so both pages remain visually consistent. -->
@@ -18,8 +18,8 @@
 <body class="resume-page">
   <!--
     RESUME HEADER
-    This lightweight header intentionally contains only the actions a recruiter is most likely to need:
-    return to the portfolio, download the PDF, or open the professional profiles.
+    This public version intentionally avoids private contact information.
+    Visitors can return to the portfolio or continue the conversation through professional profiles.
   -->
   <header class="resume-site-header">
     <div class="container resume-nav">
@@ -27,7 +27,6 @@
 
       <nav class="resume-nav-links" aria-label="Resume navigation">
         <a href="index.html">Portfolio</a>
-        <a href="#" onclick="window.print(); return false;">Save PDF</a>
         <a href="https://www.linkedin.com/in/karin-ramirez-reyes" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/karinramirez93" target="_blank" rel="noopener">GitHub</a>
       </nav>
@@ -45,16 +44,19 @@
       <h1>Karin Ramirez-Reyes</h1>
       <p class="resume-role">Computer Science Student | Software Developer | Technical Problem Solver</p>
 
-      <!-- Contact details wrap automatically on smaller screens. -->
-      <div class="resume-contact" aria-label="Contact information">
-        <span>Harahan, LA</span>
-        <a href="tel:+15049756323">(504) 975-6323</a>
-        <a href="mailto:karinramir1@gmail.com">karinramir1@gmail.com</a>
-      </div>
+      <!--
+        PUBLIC CONTACT POLICY
+        Phone number, street/local address, and direct email are intentionally omitted from the public site.
+        A full resume with direct contact details can be shared privately with employers when appropriate.
+      -->
+      <p class="resume-privacy-note">
+        Full resume with direct contact information available upon request.
+      </p>
 
-      <!-- Primary resume actions remain large enough for touch screens. -->
+      <!-- Professional contact options remain public and are safe to share broadly. -->
       <div class="resume-actions">
-        <button class="btn" type="button" onclick="window.print()">Print / Save Resume PDF</button>
+        <a class="btn" href="https://www.linkedin.com/in/karin-ramirez-reyes" target="_blank" rel="noopener">Contact on LinkedIn</a>
+        <a class="btn btn-secondary" href="https://github.com/karinramirez93" target="_blank" rel="noopener">View GitHub</a>
         <a class="btn btn-secondary" href="index.html">Back to Portfolio</a>
       </div>
     </section>
@@ -271,17 +273,11 @@
       </ul>
     </section>
 
-    <!-- Bottom actions prevent mobile visitors from having to scroll back to the top to download the resume. -->
-    <section class="resume-bottom-actions" aria-label="Resume actions">
-      <button class="btn" type="button" onclick="window.print()">Print / Save Resume PDF</button>
+    <!-- Bottom actions keep the professional contact path easy to reach on long mobile pages. -->
+    <section class="resume-bottom-actions" aria-label="Professional contact options">
+      <a class="btn" href="https://www.linkedin.com/in/karin-ramirez-reyes" target="_blank" rel="noopener">Contact on LinkedIn</a>
       <a class="btn btn-secondary" href="index.html">Return to Portfolio</a>
     </section>
   </main>
-
-  <!--
-    PRINT BEHAVIOR
-    window.print() is intentionally used instead of an external dependency. On most desktop and mobile
-    browsers this provides a native print dialog with a "Save as PDF" option.
-  -->
 </body>
 </html>
