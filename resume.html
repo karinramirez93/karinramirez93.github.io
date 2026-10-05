@@ -16,6 +16,40 @@
 </head>
 
 <body class="resume-page">
+  <!--
+    PUBLIC RESUME HEADER
+    The header exposes only professional/public destinations. Private phone, email,
+    and address remain omitted from the public site.
+  -->
+  <header class="resume-site-header">
+    <div class="container resume-nav">
+      <a class="logo" href="index.html">&lt;/&gt; Mr. Karin Ramirez</a>
+
+      <button
+        class="resume-nav-toggle"
+        id="resume-nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="resume-primary-navigation"
+        aria-label="Open resume navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav
+        class="resume-nav-links"
+        id="resume-primary-navigation"
+        aria-label="Resume navigation"
+      >
+        <a href="index.html">Portfolio</a>
+        <a href="https://www.linkedin.com/in/karin-ramirez-reyes" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/karinramirez93" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
   <main class="container resume-shell">
     <!--
       RESUME INTRO
@@ -263,8 +297,15 @@
         rel="noopener"
         aria-label="Contact Karin Ramirez on LinkedIn"
       >
-        <!-- LinkedIn icon is inline so the page does not depend on an external icon library. -->
-        <svg class="resume-action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <svg
+          class="resume-action-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+          style="width:18px;height:18px;max-width:18px;max-height:18px;display:block;flex:0 0 18px;"
+        >
           <path d="M6.94 8.5H3.56V19.3h3.38V8.5ZM5.25 3.7a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92ZM20.44 13.11c0-3.25-1.73-4.76-4.04-4.76-1.86 0-2.69 1.02-3.16 1.74V8.5H9.86c.04 1.05 0 10.8 0 10.8h3.38v-6.03c0-.32.02-.65.12-.88.25-.65.82-1.32 1.77-1.32 1.25 0 1.75.95 1.75 2.35v5.88h3.38l.18-6.19Z"/>
         </svg>
         <span>LinkedIn</span>
@@ -277,8 +318,15 @@
         rel="noopener"
         aria-label="View Karin Ramirez on GitHub"
       >
-        <!-- GitHub icon is inline for the same reason: no extra package or network dependency. -->
-        <svg class="resume-action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <svg
+          class="resume-action-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+          style="width:18px;height:18px;max-width:18px;max-height:18px;display:block;flex:0 0 18px;"
+        >
           <path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.89-.02-1.75-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .08 1.53 1.06 1.53 1.06.9 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.35 9.35 0 0 1 12 6.92c.85 0 1.7.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.8-4.58 5.05.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.26 10.26 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/>
         </svg>
         <span>GitHub</span>
@@ -289,5 +337,46 @@
       </a>
     </section>
   </main>
+  <script>
+    /*
+     * Resume mobile navigation
+     * ------------------------
+     * The public resume keeps its professional links visible on desktop and
+     * collapses them behind a hamburger button on smaller screens.
+     */
+    const resumeNavToggle = document.getElementById('resume-nav-toggle');
+    const resumePrimaryNavigation = document.getElementById('resume-primary-navigation');
+
+    function setResumeNavigationOpen(isOpen) {
+      resumePrimaryNavigation.classList.toggle('is-open', isOpen);
+      resumeNavToggle.classList.toggle('is-open', isOpen);
+      resumeNavToggle.setAttribute('aria-expanded', String(isOpen));
+      resumeNavToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Close resume navigation menu' : 'Open resume navigation menu'
+      );
+    }
+
+    resumeNavToggle.addEventListener('click', () => {
+      setResumeNavigationOpen(resumeNavToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    resumePrimaryNavigation.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 760) setResumeNavigationOpen(false);
+      });
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && resumeNavToggle.getAttribute('aria-expanded') === 'true') {
+        setResumeNavigationOpen(false);
+        resumeNavToggle.focus();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 760) setResumeNavigationOpen(false);
+    });
+  </script>
 </body>
 </html>
