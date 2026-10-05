@@ -467,3 +467,38 @@ input:focus, textarea:focus {
     border-color: #bbb;
   }
 }
+
+
+/* ==========================================================================
+   PUBLIC CONTACT & RESUME PRIVACY
+   --------------------------------------------------------------------------
+   These styles support privacy-safe contact options. Direct personal contact
+   information is intentionally not displayed on the public portfolio.
+   ========================================================================== */
+
+.contact-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.resume-privacy-note {
+  max-width: 680px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Keep public contact actions easy to tap on narrow screens. */
+@media (max-width: 520px) {
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
