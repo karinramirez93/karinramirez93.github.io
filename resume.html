@@ -25,24 +25,12 @@
     <div class="container resume-nav">
       <a class="logo" href="index.html">&lt;/&gt; Mr. Karin Ramirez</a>
 
-      <button
-        class="resume-nav-toggle"
-        id="resume-nav-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="resume-primary-navigation"
-        aria-label="Open resume navigation menu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav
-        class="resume-nav-links"
-        id="resume-primary-navigation"
-        aria-label="Resume navigation"
-      >
+      <!--
+        PUBLIC RESUME LINKS
+        Keep these small and inline on the right side of the header on every screen size.
+        The resume page intentionally does not use a hamburger menu.
+      -->
+      <nav class="resume-nav-links resume-nav-inline" aria-label="Resume navigation">
         <a href="index.html">Portfolio</a>
         <a href="https://www.linkedin.com/in/karin-ramirez-reyes" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/karinramirez93" target="_blank" rel="noopener">GitHub</a>
@@ -337,46 +325,5 @@
       </a>
     </section>
   </main>
-  <script>
-    /*
-     * Resume mobile navigation
-     * ------------------------
-     * The public resume keeps its professional links visible on desktop and
-     * collapses them behind a hamburger button on smaller screens.
-     */
-    const resumeNavToggle = document.getElementById('resume-nav-toggle');
-    const resumePrimaryNavigation = document.getElementById('resume-primary-navigation');
-
-    function setResumeNavigationOpen(isOpen) {
-      resumePrimaryNavigation.classList.toggle('is-open', isOpen);
-      resumeNavToggle.classList.toggle('is-open', isOpen);
-      resumeNavToggle.setAttribute('aria-expanded', String(isOpen));
-      resumeNavToggle.setAttribute(
-        'aria-label',
-        isOpen ? 'Close resume navigation menu' : 'Open resume navigation menu'
-      );
-    }
-
-    resumeNavToggle.addEventListener('click', () => {
-      setResumeNavigationOpen(resumeNavToggle.getAttribute('aria-expanded') !== 'true');
-    });
-
-    resumePrimaryNavigation.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 760) setResumeNavigationOpen(false);
-      });
-    });
-
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && resumeNavToggle.getAttribute('aria-expanded') === 'true') {
-        setResumeNavigationOpen(false);
-        resumeNavToggle.focus();
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 760) setResumeNavigationOpen(false);
-    });
-  </script>
 </body>
 </html>
